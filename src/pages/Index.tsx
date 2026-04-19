@@ -5,12 +5,14 @@ import { Categories } from "@/components/Categories";
 import { ProductGrid } from "@/components/ProductGrid";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
+import { BeginnerCallout } from "@/components/BeginnerCallout";
 
 const Index = () => {
   const [category, setCategory] = useState<string | "all">("all");
+  const [beginnerOnly, setBeginnerOnly] = useState(false);
 
   useEffect(() => {
-    document.title = "MaM Voltík — elektronické stavebnice a součástky";
+    document.title = "MaM Voltík — elektronika srozumitelně pro začátečníky";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -23,7 +25,7 @@ const Index = () => {
     };
     setMeta(
       "description",
-      "Arduino, ESP32, senzory, pasivní součástky a pájecí stavebnice. Pečlivě vybraná elektronika pro kutily i profíky. Expedice do 48 hodin."
+      "Začínáte s elektronikou? Stavebnice pro začátečníky i pokročilé, Arduino, senzory a srozumitelné návody k základům elektroniky. MaM Voltík."
     );
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -47,8 +49,13 @@ const Index = () => {
       <Header />
       <main className="flex-1">
         <Hero />
+        <BeginnerCallout />
         <Categories active={category} onSelect={handleSelect} />
-        <ProductGrid category={category} />
+        <ProductGrid
+          category={category}
+          beginnerOnly={beginnerOnly}
+          onToggleBeginner={() => setBeginnerOnly((v) => !v)}
+        />
         <About />
       </main>
       <Footer />

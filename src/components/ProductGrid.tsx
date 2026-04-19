@@ -3,13 +3,15 @@ import { Product, products } from "@/data/products";
 import { ProductCard } from "./ProductCard";
 import { InquiryDialog } from "./InquiryDialog";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 
 interface ProductGridProps {
   category: string | "all";
+  beginnerOnly: boolean;
+  onToggleBeginner: () => void;
 }
 
-export const ProductGrid = ({ category }: ProductGridProps) => {
+export const ProductGrid = ({ category, beginnerOnly, onToggleBeginner }: ProductGridProps) => {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const [open, setOpen] = useState(false);
@@ -17,14 +19,15 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
   const filtered = useMemo(() => {
     return products.filter((p) => {
       const matchCat = category === "all" || p.category === category;
+      const matchBeg = !beginnerOnly || p.beginnerFriendly;
       const q = query.trim().toLowerCase();
       const matchQ =
         !q ||
         p.name.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q);
-      return matchCat && matchQ;
+      return matchCat && matchBeg && matchQ;
     });
-  }, [category, query]);
+  }, [category, query, beginnerOnly]);
 
   const handleInquire = (p: Product) => {
     setSelected(p);
@@ -42,15 +45,29 @@ export const ProductGrid = ({ category }: ProductGridProps) => {
             Aktuální nabídka
           </h2>
         </div>
-        <div className="relative w-full sm:w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Hledat součástku…"
-            className="pl-9 font-mono text-sm rounded-sm bg-card"
-            aria-label="Vyhledat produkt"
-          />
+        <div className="flex items-center gap-3 flex-wrap">
+          <button
+            onClick={onToggleBeginner}
+            aria-pressed={beginnerOnly}
+            className={`inline-flex items-center gap-2 h-10 px-4 rounded-sm border-2 font-mono text-xs uppercase tracking-wider transition-colors ${
+              beginnerOnly
+                ? "bg-mustard text-ink border-ink shadow-soft"
+                : "bg-card text-muted-foreground border-border hover:border-ink hover:text-ink"
+            }`}
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            Pro začátečníky
+          </button>
+          <div className="relative w-full sm:w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Hledat součástku…"
+              className="pl-9 font-mono text-sm rounded-sm bg-card"
+              aria-label="Vyhledat produkt"
+            />
+          </div>
         </div>
       </div>
 
