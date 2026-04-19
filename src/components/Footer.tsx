@@ -9,7 +9,7 @@ export const Footer = () => {
             <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-gradient-copper">
               <Cpu className="h-5 w-5 text-primary-foreground" strokeWidth={2.25} />
             </div>
-            <div className="font-serif text-xl text-ink">Voltík &amp; Spol.</div>
+            <div className="font-serif text-xl text-ink">MaM Voltík</div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
             Elektronické stavebnice a součástky pro kutily, kantory i profíky.
@@ -54,7 +54,7 @@ export const Footer = () => {
       </div>
       <div className="border-t border-border">
         <div className="container py-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-          <span>© {new Date().getFullYear()} Voltík &amp; Spol.</span>
+          <span>© {new Date().getFullYear()} MaM Voltík</span>
           <span>made with soldering iron · Praha</span>
         </div>
       </div>

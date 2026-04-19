@@ -9,7 +9,7 @@ export const Header = () => {
             <Cpu className="h-5 w-5 text-primary-foreground" strokeWidth={2.25} />
           </div>
           <div className="leading-tight">
-            <div className="font-serif text-xl text-ink">Voltík &amp; Spol.</div>
+            <div className="font-serif text-xl text-ink">MaM Voltík</div>
             <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               elektronické dílny
             </div>
