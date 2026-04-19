@@ -10,7 +10,7 @@ const Index = () => {
   const [category, setCategory] = useState<string | "all">("all");
 
   useEffect(() => {
-    document.title = "Voltík & Spol. — elektronické stavebnice a součástky";
+    document.title = "MaM Voltík — elektronické stavebnice a součástky";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
