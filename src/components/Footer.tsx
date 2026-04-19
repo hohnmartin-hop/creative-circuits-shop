@@ -1,9 +1,11 @@
 import { Mail, Phone, MapPin, Cpu } from "lucide-react";
+import { Link } from "react-router-dom";
+import { basicTopics } from "@/data/basics";
 
 export const Footer = () => {
   return (
     <footer id="kontakt" className="border-t border-border bg-paper">
-      <div className="container py-14 grid md:grid-cols-3 gap-10">
+      <div className="container py-14 grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
             <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-gradient-copper">
@@ -49,6 +51,29 @@ export const Footer = () => {
             <li className="flex justify-between"><span>Po – Pá</span><span className="text-ink">9 – 18</span></li>
             <li className="flex justify-between"><span>Sobota</span><span className="text-ink">9 – 12</span></li>
             <li className="flex justify-between"><span>Neděle</span><span>zavřeno</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-mono text-xs uppercase tracking-widest text-ink mb-4">
+            Základy elektroniky
+          </h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li>
+              <Link to="/zaklady" className="hover:text-primary transition-colors">
+                Rozcestník
+              </Link>
+            </li>
+            {basicTopics.map((t) => (
+              <li key={t.id}>
+                <Link
+                  to={`/zaklady/${t.slug}`}
+                  className="hover:text-primary transition-colors"
+                >
+                  {t.shortTitle}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

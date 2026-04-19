@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-electronics.jpg";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -14,28 +15,30 @@ export const Hero = () => {
           </div>
 
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05]">
-            Stavebnice a součástky{" "}
-            <span className="italic text-primary">pro každého kutila</span>
+            Elektronika{" "}
+            <span className="italic text-primary">srozumitelně</span>
+            <br />
+            od první LED dál
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Arduino, ESP32, senzory, pájecí stavebnice i klasické pasivní součástky.
-            Pečlivě vybrané kousky pro vaše projekty &mdash; od prvního blikajícího LED
-            po vlastní robota.
+            Začínáte s elektronikou? Připravili jsme stavebnice pro úplné začátečníky,
+            srozumitelné návody a všechny součástky, které k prvním projektům potřebujete.
+            Bez zbytečných odborných frází.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <a
-              href="#produkty"
+            <Link
+              to="/zaklady"
               className="inline-flex h-12 items-center rounded-sm bg-primary px-6 font-mono text-sm uppercase tracking-wider text-primary-foreground shadow-elevated hover:bg-copper transition-colors"
             >
-              Prohlédnout katalog
-            </a>
+              Začít se základy
+            </Link>
             <a
-              href="#kategorie"
+              href="#produkty"
               className="inline-flex h-12 items-center rounded-sm border-2 border-ink/80 bg-transparent px-6 font-mono text-sm uppercase tracking-wider text-ink hover:bg-ink hover:text-paper transition-colors"
             >
-              Kategorie
+              Procházet katalog
             </a>
           </div>
 

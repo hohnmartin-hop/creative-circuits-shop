@@ -8,6 +8,7 @@ export interface Product {
   description: string;
   tag?: string;
   stock: "skladem" | "na objednávku" | "doprodej";
+  beginnerFriendly?: boolean;
 }
 
 export const categories: { id: Category; name: string; description: string }[] = [
@@ -26,6 +27,7 @@ export const products: Product[] = [
     description: "Originální vývojová deska Arduino UNO R3 s ATmega328P. Ideální pro začátečníky i pokročilé.",
     tag: "Bestseller",
     stock: "skladem",
+    beginnerFriendly: true,
   },
   {
     id: "esp32-devkit",
@@ -51,6 +53,7 @@ export const products: Product[] = [
     price: 129,
     description: "Přesný digitální senzor teploty a vlhkosti. Rozsah −40 až 80 °C.",
     stock: "skladem",
+    beginnerFriendly: true,
   },
   {
     id: "oled-096",
@@ -75,6 +78,7 @@ export const products: Product[] = [
     price: 199,
     description: "Sada uhlíkových rezistorů 1/4W, 30 hodnot od 10 Ω do 1 MΩ, v krabičce.",
     stock: "skladem",
+    beginnerFriendly: true,
   },
   {
     id: "cap-pack",
@@ -91,6 +95,7 @@ export const products: Product[] = [
     price: 89,
     description: "M-M, M-F, F-F kabely 20 cm pro nepájivé kontaktní pole.",
     stock: "skladem",
+    beginnerFriendly: true,
   },
   {
     id: "kit-clock",
@@ -108,6 +113,7 @@ export const products: Product[] = [
     price: 690,
     description: "Stereo zesilovač s TDA2030. Vhodné pro začátečníky v pájení.",
     stock: "skladem",
+    beginnerFriendly: true,
   },
   {
     id: "kit-robot",

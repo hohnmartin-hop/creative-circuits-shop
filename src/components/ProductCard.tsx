@@ -32,6 +32,11 @@ export const ProductCard = ({ product, onInquire }: ProductCardProps) => {
             {product.tag}
           </span>
         )}
+        {product.beginnerFriendly && (
+          <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest px-2 py-1 rounded-sm bg-mustard text-ink shadow-soft">
+            <span aria-hidden>★</span> Pro začátečníky
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col flex-1 p-5 gap-3">
