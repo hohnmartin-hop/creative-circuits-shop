@@ -1,96 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Retro electronics design system. All colors HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Surfaces — warm cream / paper */
+    --background: 39 38% 94%;
+    --foreground: 25 35% 14%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 38 45% 97%;
+    --card-foreground: 25 35% 14%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 38 45% 97%;
+    --popover-foreground: 25 35% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary — copper */
+    --primary: 18 64% 38%;
+    --primary-foreground: 39 50% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary — mustard */
+    --secondary: 39 70% 55%;
+    --secondary-foreground: 25 40% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 38 25% 87%;
+    --muted-foreground: 25 18% 38%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent — PCB green */
+    --accent: 145 38% 28%;
+    --accent-foreground: 39 50% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 39 50% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 25% 80%;
+    --input: 30 25% 82%;
+    --ring: 18 64% 38%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
+
+    /* Brand-specific tokens */
+    --copper: 18 64% 38%;
+    --copper-glow: 22 78% 52%;
+    --mustard: 39 70% 55%;
+    --pcb: 145 38% 28%;
+    --solder: 200 15% 65%;
+    --ink: 25 40% 12%;
+    --paper: 39 38% 94%;
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(39 55% 88%) 0%, hsl(30 45% 82%) 100%);
+    --gradient-copper: linear-gradient(135deg, hsl(var(--copper)) 0%, hsl(var(--copper-glow)) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(39 38% 94% / 0) 0%, hsl(39 38% 94%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(25 40% 14% / 0.08), 0 1px 2px hsl(25 40% 14% / 0.06);
+    --shadow-card: 0 4px 16px -4px hsl(25 40% 14% / 0.12), 0 2px 4px hsl(25 40% 14% / 0.06);
+    --shadow-elevated: 0 12px 32px -8px hsl(18 64% 28% / 0.25);
+
+    /* PCB pattern background */
+    --pcb-pattern:
+      radial-gradient(circle at 1px 1px, hsl(25 30% 30% / 0.12) 1px, transparent 0);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 25 25% 10%;
+    --foreground: 39 38% 92%;
+    --card: 25 22% 13%;
+    --card-foreground: 39 38% 92%;
+    --popover: 25 22% 13%;
+    --popover-foreground: 39 38% 92%;
+    --primary: 22 78% 55%;
+    --primary-foreground: 25 35% 10%;
+    --secondary: 39 60% 50%;
+    --secondary-foreground: 25 35% 10%;
+    --muted: 25 18% 18%;
+    --muted-foreground: 39 20% 65%;
+    --accent: 145 38% 38%;
+    --accent-foreground: 39 50% 96%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 39 50% 96%;
+    --border: 25 18% 22%;
+    --input: 25 18% 22%;
+    --ring: 22 78% 55%;
   }
 }
 
@@ -99,7 +105,39 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--pcb-pattern);
+    background-size: 24px 24px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono-retro {
+    font-family: 'Space Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .pcb-trace {
+    background-image:
+      linear-gradient(90deg, transparent 49%, hsl(var(--accent) / 0.25) 49%, hsl(var(--accent) / 0.25) 51%, transparent 51%),
+      linear-gradient(0deg, transparent 49%, hsl(var(--accent) / 0.15) 49%, hsl(var(--accent) / 0.15) 51%, transparent 51%);
+    background-size: 40px 40px;
+  }
+
+  .tape-label {
+    @apply inline-block font-mono-retro text-xs uppercase tracking-widest px-2 py-0.5;
+    background: hsl(var(--mustard));
+    color: hsl(var(--ink));
+    box-shadow: var(--shadow-soft);
   }
 }
