@@ -1,15 +1,15 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import Zaklady from "./pages/Zaklady.tsx";
-import Soucastky from "./pages/zaklady/Soucastky.tsx";
-import Principy from "./pages/zaklady/Principy.tsx";
-import Schema from "./pages/zaklady/Schema.tsx";
-import Projekty from "./pages/zaklady/Projekty.tsx";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Zaklady from "./pages/Zaklady";
+import Soucastky from "./pages/zaklady/Soucastky";
+import Principy from "./pages/zaklady/Principy";
+import Schema from "./pages/zaklady/Schema";
+import Projekty from "./pages/zaklady/Projekty";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/creative-circuits-shop">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/zaklady" element={<Zaklady />} />
