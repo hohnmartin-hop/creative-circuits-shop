@@ -22,7 +22,7 @@ export const Categories = ({ active, onSelect }: CategoriesProps) => {
             // 01 — sortiment
           </span>
           <h2 className="font-serif text-3xl md:text-4xl text-ink mt-2">
-            Vyber si svou polici
+            Vyber si svůj sortiment
           </h2>
         </div>
         <button
