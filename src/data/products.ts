@@ -9,6 +9,7 @@ export interface Product {
   tag?: string;
   stock: "skladem" | "na objednávku" | "doprodej";
   beginnerFriendly?: boolean;
+  image?: string;
 }
 
 export const categories: { id: Category; name: string; description: string }[] = [
@@ -79,6 +80,7 @@ export const products: Product[] = [
     description: "Sada uhlíkových rezistorů 1/4W, 30 hodnot od 10 Ω do 1 MΩ, v krabičce.",
     stock: "skladem",
     beginnerFriendly: true,
+    image: "products/rezistory-600.jpg",
   },
   {
     id: "cap-pack",

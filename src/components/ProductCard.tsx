@@ -17,13 +17,22 @@ export const ProductCard = ({ product, onInquire }: ProductCardProps) => {
 
   return (
     <article className="group flex flex-col bg-card border border-border rounded-sm shadow-soft hover:shadow-card transition-all hover:-translate-y-0.5 overflow-hidden">
-      {/* Visual placeholder — PCB trace pattern with category mark */}
-      <div className="relative aspect-[4/3] pcb-trace bg-muted overflow-hidden border-b border-border">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="font-serif text-5xl md:text-6xl text-ink/15 select-none rotate-[-4deg]">
-            {product.name.split(" ")[0]}
+      {/* Visual media or fallback placeholder */}
+      <div className="relative aspect-[4/3] bg-muted overflow-hidden border-b border-border">
+        {product.image ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="absolute inset-0 pcb-trace flex items-center justify-center">
+            <div className="font-serif text-5xl md:text-6xl text-ink/15 select-none rotate-[-4deg]">
+              {product.name.split(" ")[0]}
+            </div>
           </div>
-        </div>
+        )}
+
         <span className={`absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-sm ${stockStyles[product.stock]}`}>
           {product.stock}
         </span>
