@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: hohnmartin-hop/creative-circuits-shop
+  branch: main
+
+# Nastavení složek pro obrázky
+media_folder: "public/products"
+public_folder: "products"
+
+# Nastavení kolekcí (co budeme v administraci spravovat)
+collections:
+  - name: "products"
+    label: "Produkty"
+    folder: "src/data/products"
+    create: true
+    slug: "{{fields.id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "ID součástky (unikátní, např. res-600)", name: "id", widget: "string" }
+      - { label: "Název součástky", name: "name", widget: "string" }
+      - label: "Kategorie"
+        name: "category"
+        widget: "select"
+        options: ["arduino", "moduly", "pasivni", "stavebnice"]
+      - { label: "Cena (Kč)", name: "price", widget: "number", value_type: "int" }
+      - { label: "Popis", name: "description", widget: "text" }
+      - { label: "Štítek (např. Bestseller - nepovinné)", name: "tag", widget: "string", required: false }
+      - label: "Stav skladu"
+        name: "stock"
+        widget: "select"
+        options: ["skladem", "na objednávku", "doprodej"]
+        default: "skladem"
+      - { label: "Pro začátečníky", name: "beginnerFriendly", widget: "boolean", default: false, required: false }
+      - { label: "Fotka součástky", name: "image", widget: "image", required: false }
