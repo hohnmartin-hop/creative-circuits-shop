@@ -19,7 +19,7 @@ export const categories: { id: Category; name: string; description: string }[] =
   { id: "stavebnice", name: "Stavebnice a kity", description: "Hotové sady k pájení a sestavení" },
 ];
 
-export const products: Product[] = [
+const initialProducts: Product[] = [
   {
     id: "ard-uno-r3",
     name: "Arduino UNO R3",
@@ -127,3 +127,14 @@ export const products: Product[] = [
     stock: "na objednávku",
   },
 ];
+
+// Automatické dynamické načtení všech .json souborů ze složky src/data/products/
+const cmsModules = import.meta.glob<Product>("./products/*.json", {
+  eager: true,
+  import: "default",
+});
+
+const cmsProducts: Product[] = Object.values(cmsModules);
+
+// Sloučení fixních položek a nově vytvořených produktů z Decap CMS
+export const products: Product[] = [...initialProducts, ...cmsProducts];
