@@ -1,0 +1,9 @@
+{
+  "stock": "skladem",
+  "beginnerFriendly": false,
+  "id": "test-01",
+  "name": "Testovací LED",
+  "price": 15,
+  "category": "pasivni",
+  "description": "Test funkčnosti CMS"
+}
