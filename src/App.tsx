@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/creative-circuits-shop">
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/zaklady" element={<Zaklady />} />
