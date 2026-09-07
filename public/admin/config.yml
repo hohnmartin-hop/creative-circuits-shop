@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: hohnmartin-hop/creative-circuits-shop
+  name: git-gateway
   branch: main
 
 # Nastavení složek pro obrázky
